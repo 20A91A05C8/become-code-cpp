@@ -49,4 +49,41 @@ output:
 2 1
 3 2
 4 1
-------------------------------------------------
+-----------------first appearence in an arry-------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+int drinker(int arr[],int t,int n){
+	int left=0,right=n-1;
+	while(left<=right)
+	{
+		int mid=(left+right)>>1;
+		if(arr[mid]>=t){
+			right=mid-1;
+		}
+		else
+			left=mid+1;
+	}
+	return left;
+}
+int main()
+{
+	int n=9;
+	int arr[n]={1,2,3,4,4,4,5,6,7};
+	int pos;
+	for(int i=0;i<n;i++)
+		cout<<arr[i]<<" ";
+	cout<<endl<<"first 4 is in position:";
+	pos=drinker(arr,4,9);
+	cout<<pos;
+
+}
+output:
+1 2 3 4 4 4 5 6 7 
+first 4 is in position:3
+-------builtin funtions for the above code---------
+int index=lower_bound(arr,arr+n,4)-arr;//builtin function for whole program
+int index1=lower_bound(ve.begin(),ve.end(),t)-ve.begin();//built in function for vectors
+int index2=upper_bound(arr,arr+n,4)-arr-1;//for upper bound
+cout<<endl<<index<<" "<<index2;
+output:
+3 5
