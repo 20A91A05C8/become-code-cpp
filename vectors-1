@@ -38,16 +38,19 @@ int main()
 		cout<<*it<<"   ";
 	}
 	cout<<endl;
-	sort(ve.begin(),ve.end());//to sort the vectorfor(it=ve.begin();it!=ve.end();it++)
-
-	{
-		cout<<*it<<"   ";
-	}
+	sort(ve.begin(),ve.end()); //to sort the vector
 	for(it=ve.begin();it!=ve.end();it++)
 
 	{
 		cout<<*it<<"   ";
 	}
+	cout<<endl;
+	sort(ve.begin(),ve.end(),greater<int>());
+	for(it=ve.begin();it!=ve.end();it++)
+	{
+		cout<<*it<<"   ";
+	}
+
 
 }
 output:
@@ -55,7 +58,8 @@ output:
 0   2   4   6   
 0   6   
 300   0   6   200   
-8   0   6   200   300   
+0   6   200   300   
+300   200   6   0    
 2)----------------------------------//2D vector-----------------------------------------------------------
 #include<iostream>
 #include<vector>
