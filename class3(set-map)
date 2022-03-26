@@ -1,0 +1,69 @@
+------------set----------------------
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	std::set<int>se;
+	se.insert(1);//1
+	se.insert(2);//1 2
+	se.insert(4);//1 2 4
+	se.emplace(3);//1 2 3 4
+	cout<<"values=";
+	 for (auto it = se.begin();it!=se.end(); ++it)
+        cout << ' ' << *it;
+	//begin(),end(),rbegin(),rend(),size(),empty(),and swap(),are same in all
+	auto it=se.find(3);//to check if element is present
+	cout<<endl<<*it<<endl;
+	auto i=se.find(6);//element not found goes to last+1 address
+	cout<<*i<<endl;
+	auto it1=se.find(2);
+	auto it2=se.find(4);
+	se.erase(it1,it2);//erase in the range from first to last
+	int c=se.count(1);//if present count is 1 else 0
+	cout<<c<<endl<<"values=";
+	 for (auto it = se.begin();it!=se.end(); ++it)
+        cout << ' ' << *it;
+}
+output:
+values= 1 2 3 4
+3
+4
+1
+values= 1 4
+-----------greeks for greeks(map operations)-----------
+map<int,int> mapInsert(int arr[],int n)
+{
+    map<int,int>mp;
+   //Insert arr[i] as key and i as value
+    for(int i=0;i<n;i++)
+    mp[arr[i]]=i;
+    
+    return mp;
+    
+}
+
+
+void mapDisplay(map<int,int>mp)
+{
+    //Print every key and value pair in a new line
+   for(auto it:mp){
+		cout<<it.first<<" "<<it.second<<"\n";
+   }
+}
+
+
+void mapErase(map<int,int>&mp,int x)
+{
+   //Write the if and else condition to erase x from map
+   auto it=mp.find(x);
+   if(it!=mp.end()){
+       mp.erase(it);
+    cout<<"erased "<<x;
+   }
+    else{
+    //else condition
+    cout<<"not found";
+    }
+    
+    cout<<endl;
+}
