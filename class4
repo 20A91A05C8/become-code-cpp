@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+#include<vector>
+using namespace std;
+long long n=1000001;
+vector<bool>primes(n,true);
+void gen_seive()
+{
+	primes[0]=primes[1]=false;//0 and 1 as false
+	for(int i=2;i*i<n;i++){//if a is prime all the multiples will be false
+		if(primes[i]==true){
+			for(int j=i*i;j<=n;j+=i)
+				primes[j]=false;
+		}
+	}
+}
+
+int main()
+{
+	gen_seive();
+		int l;
+		cin>>l;
+		long long count=0;
+		if(primes[l]==true) //to check the number is prime
+			cout<<"prime";
+		else
+			cout<<"not prime";
+		for(int i=0;i<=n;i++)
+		{
+			if(primes[i]==true)
+				count++;//78498 no of prime numbers in the range
+		}
+		cout<<count;
+}
