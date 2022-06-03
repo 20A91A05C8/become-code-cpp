@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+void f(int ind,int n,int arr[],vector<int>&ds){
+if(ind==n){
+for( auto it:ds)
+cout<<it<<" ";
+cout<<"\n";
+return;
+}
+//pick
+ds.push_back(arr[ind]);
+f(ind+1,n,arr,ds);
+ds.pop_back();
+//non pick
+f(ind+1,n,arr,ds);
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++) cin>>a[i];
+    vector<int>ds;
+    f(0,n,a,ds);
+}
+input:
+3
+1 2 3
+output:
+1 2 3 
+1 2 
+1 3 
+1 
+2 3 
+2 
+3 
+
